@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 
 async function login(req, res, next) {
-    const username = req.body.username;
+    const username = req.body.email;
 
     try{
         const user = await User.findOne({email: username});
@@ -12,7 +12,7 @@ async function login(req, res, next) {
             if(isValidPassword) {
                 const userObject = {
                     userid: user._id,
-                    username: user.name,
+                    name: user.name,
                     email: user.email,
                     mobile: user.mobile,
                     role: user.role || "user",
@@ -26,8 +26,7 @@ async function login(req, res, next) {
                     signed: true
                 })
                 res.status(200).json({
-                    data: user,
-                    message: "User has been logged in successfully."
+                   ...userObject
                 })
             }
             else {
