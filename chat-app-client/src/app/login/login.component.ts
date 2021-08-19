@@ -7,6 +7,7 @@ import { LoginService } from './services/login.service';
 import { takeUntil, map, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { ChathouseBusinessService } from '../shared/services/chathouse-business.service';
 
 @Component({
     selector     : 'login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
         private _formBuilder: FormBuilder,
         private router : Router,
         private loginService: LoginService,
-        private cookieService: CookieService
+        private cookieService: CookieService,
+        private chathouseBusinessService: ChathouseBusinessService
     )
     {
         this._fuseConfigService.config = {
@@ -73,6 +75,7 @@ export class LoginComponent implements OnInit {
             }
         }, err => {
             console.log(err.error.message);
+            this.chathouseBusinessService.showAlert(err.error.message);
         })
     }
 

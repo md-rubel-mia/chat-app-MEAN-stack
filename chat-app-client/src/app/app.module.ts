@@ -23,6 +23,7 @@ import { AppStoreModule } from 'app/store/store.module';
 import { LayoutModule } from 'app/layout/layout.module';
 import { AuthGuard } from './guards/auth.guard';
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const appRoutes: Routes = [
     {
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
         // Material
         MatButtonModule,
         MatIconModule,
+        MatSnackBarModule,
 
         // Fuse modules
         FuseModule.forRoot(fuseConfig),

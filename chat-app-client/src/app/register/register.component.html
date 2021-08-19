@@ -7,12 +7,11 @@
         </div>
 
         <div class="title" [@animate]="{value:'*',params:{delay:'50ms',y:'25px'}}">
-            Welcome to the FUSE!
+            Welcome to the Chathouse!
         </div>
 
         <div class="description" [@animate]="{value:'*',params:{delay:'100ms',y:'25px'}}">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat,
-            vel convallis elit fermentum pellentesque. Sed mollis velit facilisis facilisis viverra.
+           Register and start chatting right away!
         </div>
 
     </div>
@@ -43,10 +42,10 @@
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="email">
                     <mat-icon matSuffix class="secondary-text">mail</mat-icon>
-                    <mat-error *ngIf="registerForm.get('mobile').hasError('required')">
+                    <mat-error *ngIf="registerForm.get('email').hasError('required')">
                         Email is required
                     </mat-error>
-                    <mat-error *ngIf="registerForm.get('mobile').hasError('mobile')">
+                    <mat-error *ngIf="registerForm.get('email').hasError('email')">
                         Please enter a valid email address
                     </mat-error>
                 </mat-form-field>
@@ -55,10 +54,10 @@
                     <mat-label>Mobile</mat-label>
                     <input matInput formControlName="mobile">
                     <mat-icon matSuffix class="secondary-text">phone</mat-icon>
-                    <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                    <mat-error *ngIf="registerForm.get('mobile').hasError('required')">
                       Mobile number is required
                     </mat-error>
-                    <mat-error *ngIf="registerForm.get('email').hasError('email')">
+                    <mat-error *ngIf="registerForm.get('mobile').hasError('pattern')">
                         Please enter a valid mobile number
                     </mat-error>
                 </mat-form-field>
